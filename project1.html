@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <title>INPRNT</title>
+        <style>
+             body{
+                padding: 0;
+                margin: 0;
+                height: 100vh;
+                justify-self: center;
+                align-items: center;
+                text-decoration: none;
+                font-family: sans-serif;
+                background-position: center;
+            }
+            .header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000px;
+                background: #222;
+                display: flex;
+                align-items: center;
+                padding: 0;
+            }
+            .header .logo{
+                font-size: 36px;
+                color: #fff;
+                margin-left: 20%;
+                font-family: serif;
+                text-decoration: none;
+            }
+            span{
+                border: 1px;
+                color: #222;
+                background-color: #fff;
+                border-radius: 2px;
+                padding: 4px;
+                font-size: 20px;
+                font-family: sans-serif;
+                font-weight: bolder;
+                text-decoration: none;
+            }
+            .header .navbar ul{
+                display: inline-flex;
+                list-style: none;
+                color: #fff;
+            }
+            .header .navbar #h1{
+                margin: 15px;
+                font-size: 13px;
+                color: gray;
+                text-decoration: none;
+                cursor: pointer;
+                display: flex;
+            }
+            .header .navbar #h1 i{
+                color: gray;
+                font-size: 10px;
+            }
+            .header .navbar #h1 i:hover{
+                color: #fff;
+            }
+            .header .navbar #h1:hover{
+                color: #fff;
+            }
+            .navbar .sub-menu-1 a{
+                margin: 0;
+                font-size: 13px;
+                padding: 0; 
+                color: #222;
+            }
+            .sub-menu-1{
+                display: none;
+                line-height: 25px;
+            }
+            .header .navbar ul li:hover .sub-menu-1{
+                display: block;
+                position: absolute;
+                background: #fff;
+                margin-top: 15px;
+                margin-left: -15px;
+            }
+            .header .navbar ul li:hover .sub-menu-1 ul{
+                display: block;
+                margin: 10px;
+            }
+            .header .navbar ul li:hover .sub-menu-1 ul a{
+                width: 100px;
+                padding: 2px;
+            }
+            .header #menu-btn{
+                display: none;
+                font-size: 30px;
+                color: #fff;
+                background-color: #222;
+            }
+            .icons div{
+                margin-left: 100px;  
+                display: inline-flex;
+            }
+            .icons div #h{
+                font-size: 13px;
+                color: gray;
+            }
+            .icons div #h:hover{
+                color: #fff;
+            }
+            .icons #search{
+                color: #fff;
+                font-size: 13px;
+            }
+            .section{
+                padding: 0;
+                margin: 0;
+                height: 43vh;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                margin-top: 200px;
+            }
+            .slider{
+                width: 900px;
+                height: 600px;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+            .slide{
+                display: flex;
+                margin-top: 40px;
+            }
+            .slide input{
+                display: none;
+            }
+            .st{
+                transition: 1s;
+            }
+            #radio1:checked ~.first{
+                margin-left: 0;
+            }
+            #radio2:checked ~.first{
+                margin-left: -105%;
+            }
+            #radio3:checked ~.first{
+                margin-left: -210%;
+            }
+            #radio4:checked ~.first{
+                margin-left: -315%;
+            }
+            .nav-auto{
+                position: absolute;
+                width: 900px;
+                margin-top: 370px;
+                display: flex;
+                justify-content: center;
+            }
+            .nav-auto div{
+                border: 2px solid #eee;
+                border-radius: 10px;
+                padding: 5px;
+                margin-bottom: 100px;
+                transition: 1s;
+            }
+            .nav-auto div:not(:last-child){
+                margin-right: 30px;
+                justify-content: center;
+            }
+            #radio1:checked ~.nav-auto .a-b1{
+                background-color: #eee;
+            }
+            #radio2:checked ~.nav-auto .a-b2{
+                background-color: #eee;
+            }
+            #radio3:checked ~.nav-auto .a-b3{
+                background-color: #eee;
+            }
+            #radio4:checked~.nav-auto .a-b4{
+                background-color: #eee;
+            }
+           a{
+            text-decoration: none;
+            color: rgb(0, 247, 255);
+           }
+            #p{
+                width: 885px;
+                padding: 8px;
+                font-size: 13px;
+                color: gray;
+                background-color: #eee;
+                margin-left: 16.5%;
+                margin-top: 0; 
+                border: 1px solid #eee;
+                margin-top: 0;
+                font-weight: bolder;
+            }
+            .box-container{
+                width: 750px;
+                height: 300px;
+                display: flex;
+                justify-content: space-around;
+                margin-left: 22%;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            .box-container .box{
+                height: 40%;
+                width: 60%;
+                text-align: left;
+                border: none;
+                margin-left: 5px;
+            }
+            .box-container .box #h3{
+                font-size: 11px;
+                text-decoration: none;
+                color: gray;
+                margin-left: 5px;
+            }
+            .box-container .box b{
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+                color: #222;
+                margin-left: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="header" class="header">
+            <a href="#" class="logo"><span>IN</span>PRNT</a>
+            <div class="navbar">
+                <ul>
+                    <li><div id="h1" class="shop">Shop</a>
+                        <div class="sub-menu-1" id="sub-menu-1">
+                            <ul>
+                                <li><a href="#Arts Prints">Arts Prints</a></li>
+                                <li><a href="#Framed Arts Prints">Framed Arts Prints</a></li>
+                                <li><a href="#Canvas Prints">Canvas Prints</a></li>
+                                <li><a href="#Acrylic Prints">Acrylic Prints</a></li>
+                                <li><a href="#Arts Prints">Metal Prints</a></li>
+                                <li><a href="#Arts Prints">Cards Packs</a></li>
+                                <li><a href="#Arts Prints">Phone Cases</a></li>
+                                <li><a href="#Arts Prints">Art Cards</a></li>
+                                <li><a href="#Arts Prints">Limited Editions</a></li>
+                                <li><a href="#Arts Prints">Fine Art</a></li>
+                                <li><a href="#Arts Prints">Graphic Design</a></li>
+                                <li><a href="#Arts Prints">Illustration</a></li>
+                                <li><a href="#Arts Prints">Photography</a></li>
+                                <li><a href="#Arts Prints">Discover New Art</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a id="h1" href="#artists">Artists</a></li>
+                    <li><a id="h1"href="#printshop">Open A Print Shop</a></li>
+                    <li><div class="help" id="h1">Help</a>
+                        <div class="sub-menu-1" id="sub-menu-1">
+                            <ul>
+                                <li id="h"><a href="#Arts Prints">Help Center</a></li>
+                                <li id="h"><a href="#Arts Prints">Contact Us</a></li>
+                                <li id="h"><a href="#Arts Prints">Order Status</a></li>
+                                <li id="h"><a href="#Arts Prints">About</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a id="h1" href="#fas fa-shopping-cart"><i class="fas fa-shopping-cart"></i></a></li> 
+                </ul>
+            </div>
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <div><a href="#" id="h">Sign Up</a></div>
+                <div><a href="#" id="h">Login</a></div>
+                <div><i class="fas fa-search" id="search"></i></div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="slider">
+                <div class="slide">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <div class="st first">
+                        <img src="pic-1.jpg">
+                    </div>
+                    <div class="st">
+                        <img src="pic-2.jpg">
+                    </div>
+                    <div class="st">
+                        <img src="pic-3.png">
+                    </div>
+                    <div class="st">
+                        <img src="pic-4.png">
+                    </div>
+                    <div class="nav-auto">
+                        <div class="a-b1"></div>
+                        <div class="a-b2"></div>
+                        <div class="a-b3"></div>
+                        <div class="a-b4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <p id="p">Curated Picks (<a href="#">Browse Our Full Collection</a>)</p>
+        <section>
+            <div class="box-container">
+                <div class="box">
+                   <img src="p1.jpg">
+                   <h3><a href="#"><b>Woven Tradition</b></a><br><a id="h3" href="#">By Austin Lord</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p2.jpg">
+                   <h3><a href="#"><b>The Opossum's Song</b></a><br><a id="h3" href="#">By Victoria Maderna</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p3.jpg">
+                   <h3><a href="#"><b>Frog</b></a><br><a id="h3" href="#">By Henry Chau</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p4.jpg">
+                   <h3><a href="#"><b>Cave</b></a><br><a id="h3" href="#">By Jossif Patton</a></h3>
+                </div>
+            </div>
+            <div class="box-container">
+                <div class="box">
+                   <img src="p5.jpg">
+                   <h3><a href="#"><b>Summer Day</b></a><br><a id="h3" href="#">By Jose Torris</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p6.jpg">
+                   <h3><a href="#"><b>Midnight</b></a><br><a id="h3" href="#">By Salvia</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p7.jpg">
+                   <h3><a href="#"><b>Crystal Moth Mushrooms</b></a><br><a id="h3" href="#">By Clara McAllister</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p8.jpg">
+                   <h3><a href="#"><b>KINSHIP</b></a><br><a id="h3" href="#">By Pure Art</a></h3>
+                </div>
+            </div>
+              <div class="box-container">
+                <div class="box">
+                   <img src="p9.jpg">
+                   <h3><a href="#"><b>BluePrint</b></a><br><a id="h3" href="#">By Alberto Carlos Montana</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p10.jpg">
+                   <h3><a href="#"><b>Poppy</b></a><br><a id="h3" href="#">By ElizaBeth Contreras</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p11.jpg">
+                   <h3><a href="#"><b>Makara:The Water Dragon</b></a><br><a id="h3" href="#">By Humble Raja</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p12.jpg">
+                   <h3><a href="#"><b>MIGRANTS1</b></a><br><a id="h3" href="#">By Paul Dakota</a></h3>
+                </div>
+            </div>
+              <div class="box-container">
+                <div class="box">
+                   <img src="p13.jpg">
+                   <h3><a href="#"><b>Bubblegum Sky</b></a><br><a id="h3" href="#">By Elora Pautrat</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p14.jpg">
+                   <h3><a href="#"><b>Fields</b></a><br><a id="h3" href="#">By Geoff Tice</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p15.jpg">
+                   <h3><a href="#"><b>Slinky Cat</b></a><br><a id="h3" href="#">By Cvetelina Yurukova</a></h3>
+                </div>
+                <div class="box">
+                   <img src="p16.jpg">
+                   <h3><a href="#"><b>Remembrance</b></a><br><a id="h3" href="#">By Flora Castineira</a></h3>
+                </div>
+            </div>
+        </section>
+        <script src="main.js"></script>
+
+    </body>
+</html>
